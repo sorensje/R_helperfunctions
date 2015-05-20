@@ -1,11 +1,14 @@
 ### R<-->AFNI helper functions
 
+##WARNING: using global var for afni Location
+
+
+## get volumes. 
 afni_getvols <- function(scanfilename) {  
   x <- paste('/Users/Jim/abin/3dinfo -nv ', scanfilename,sep="")
   blah<-system(x,intern=TRUE)
   blah
 }
-
 
 afni_getbetas <- function(bucketfilename,index,mask){
   #bucket assumed in current dir, something like PARC_sub_2718.personplace.t.rbuck+tlrc
@@ -20,5 +23,8 @@ afni_getavgbeta <- function(bucketfilename,index,mask){
   betas <- system(command,intern=TRUE)
   as.numeric(betas)
 }
+
+
+
 
 
